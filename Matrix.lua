@@ -68,3 +68,9 @@ end
 function Matrix:reset()
 	return self:setElements(1, 0, 0, 1, 0, 0)
 end
+
+function Matrix:applyToPoint(x, y)
+	local newX = self:getM11() * x + self:getM12() * y + self:getTx()
+	local newY = self:getM21() * x + self:getM22() * y + self:getTy()
+	return newX, newY
+end
